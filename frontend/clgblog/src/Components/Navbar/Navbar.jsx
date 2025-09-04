@@ -38,21 +38,7 @@ function Navbar() {
                 Home
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink to="/theory" className="nav-link">
-                Theory
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink to="/practical" className="nav-link">
-                Practicals
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink to="/previous" className="nav-link">
-                Previous
-              </NavLink>
-            </li>
+           
             <li className="nav-item">
               <NavLink to="/about" className="nav-link">
                 About
@@ -66,11 +52,7 @@ function Navbar() {
               <i className='fa fa-sign-in'>Login</i>
             </button>
           </Link>
-          <Link to="/Register">
-            <button type="button" className="btn btn-outline-success">
-              <i className='fa fa-sign-in'>Register</i>
-            </button>
-          </Link>
+          
         </div>
       </div>
     </nav>

@@ -4,11 +4,22 @@ import "./practical.css";
 function Practical() {
   const [year, setYear] = useState("");
   const [semester, setSemester] = useState("");
+  const [subjects, setSubjects] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`You selected: ${year} Year, ${semester} Semester (Practical)`);
-    // Later: replace alert with showing a subject list
+
+    const res = await fetch(
+      `http://localhost:4000/materials/practical/${year}/${semester}`
+    );
+    const data = await res.json();
+
+    if (res.ok) {
+      const sorted = data.sort((a, b) => a.name.localeCompare(b.name));
+      setSubjects(sorted);
+    } else {
+      alert("Error: " + data.error);
+    }
   };
 
   return (
@@ -16,7 +27,6 @@ function Practical() {
       <h1>Practical Subjects</h1>
 
       <form onSubmit={handleSubmit} className="practical-form">
-        {/* Year Selection */}
         <div className="form-group">
           <label>Select Year:</label>
           <select
@@ -32,7 +42,6 @@ function Practical() {
           </select>
         </div>
 
-        {/* Semester Selection */}
         <div className="form-group">
           <label>Select Semester:</label>
           <select
@@ -47,9 +56,36 @@ function Practical() {
         </div>
 
         <button type="submit" className="btn-submit">
-          Submit
+          Get Practicals
         </button>
       </form>
+
+      {/* Subject Cards */}
+      <div className="subjects-grid">
+        {subjects.length > 0 ? (
+          subjects.map((subj) => (
+            <div key={subj._id} className="subject-card">
+              <h2>{subj.name}</h2>
+              <hr />
+              <div className="units-list">
+                {subj.units.map((u, i) => (
+                  <div key={i} className="unit-item">
+                    <a
+                      href={u.content}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      📎 {u.title}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No practicals found</p>
+        )}
+      </div>
     </div>
   );
 }

@@ -9,6 +9,7 @@ import Theory from './pages/theory/theory'
 import Practical from './pages/practical/practical'
 import About from './pages/about/about'
 import Register from './pages/register/register'
+import AdminDashboard from './pages/adminpanel/dashboard'
 import Previous from './pages/previous papers/previous'
 import { Routes,Route } from 'react-router-dom';
 function App() {
@@ -20,7 +21,7 @@ function App() {
       <Route path='/theory' element={<Theory/>}/>
       <Route path='/practical' element={<Practical/>}/>
       <Route path='/previous' element={<Previous/>}/>
-
+      <Route path='/addmaterial' element={<AdminDashboard/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/' element={<Home/>}/>
       <Route path='/login' element={<Login/>}/>

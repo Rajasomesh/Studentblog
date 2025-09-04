@@ -22,7 +22,7 @@ function Login() {
         console.log("User:", data.user);
 
         
-        window.location.href = "/home";
+        window.location.href = "/addmaterial";
       } else {
         // ❌ Action when login fails
         alert(data.error || "Login failed!");
