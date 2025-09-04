@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './login.css';
 
 function Login() {
+   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -22,7 +24,7 @@ function Login() {
         console.log("User:", data.user);
 
         
-        window.location.href = "/addmaterial";
+        navigate("/addmaterial");
       } else {
         // ❌ Action when login fails
         alert(data.error || "Login failed!");
