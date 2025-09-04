@@ -7,7 +7,7 @@ function Register() {
 
   async function register(e) {
     e.preventDefault();
-    await fetch('http://localhost:4000/register', {
+    await fetch('https://studentblog-backend.onrender.com/register', {
       method: 'POST',
       body: JSON.stringify({ username, password }),
       headers: { 'Content-type': 'application/json' },
