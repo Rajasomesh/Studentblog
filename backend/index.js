@@ -12,6 +12,7 @@ mongoose
   .catch((err) => console.log("❌ MongoDB connection failed:", err.message));
 
 const app = express();
+const port= process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
@@ -151,4 +152,4 @@ app.delete("/admin/material/:id/unit/:unitIndex", async (req, res) => {
 });
 
 /* -------------------- Start Server -------------------- */
-app.listen(4000, () => console.log("🚀 Server running on port 4000"));
+app.listen(port, () => console.log("🚀 Server running on port 4000"));
