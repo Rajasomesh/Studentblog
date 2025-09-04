@@ -10,7 +10,7 @@ function Practical() {
     e.preventDefault();
 
     const res = await fetch(
-      `http://localhost:4000/materials/practical/${year}/${semester}`
+      `https://studentblog-backend.onrender.com/materials/practical/${year}/${semester}`
     );
     const data = await res.json();
 
