@@ -14,7 +14,7 @@ function AdminDashboard() {
   // Fetch subjects
   const fetchMaterials = async () => {
     const res = await fetch(
-      `http://localhost:4000/admin/materials/${type}/${year}/${semester}`
+      `https://studentblog-backend.onrender.com/admin/materials/${type}/${year}/${semester}`
     );
     const data = await res.json();
     if (res.ok) setMaterials(data);
@@ -27,7 +27,7 @@ function AdminDashboard() {
   // Add Material
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:4000/admin/material", {
+    const res = await fetch("https://studentblog-backend.onrender.com/admin/material", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ type, year, semester, name, unitTitle, unitContent }),
@@ -46,7 +46,7 @@ function AdminDashboard() {
   // Delete Unit
   const handleDeleteUnit = async (subjectId, unitIndex) => {
     const res = await fetch(
-      `http://localhost:4000/admin/material/${subjectId}/unit/${unitIndex}`,
+      `https://studentblog-backend.onrender.com/admin/material/${subjectId}/unit/${unitIndex}`,
       { method: "DELETE" }
     );
     if (res.ok) {
@@ -62,7 +62,7 @@ function AdminDashboard() {
   const handleDeleteSubject = async (subjectId) => {
     if (!window.confirm("⚠️ Are you sure you want to delete this subject?")) return;
 
-    const res = await fetch(`http://localhost:4000/admin/material/${subjectId}`, {
+    const res = await fetch(`https://studentblog-backend.onrender.com/admin/material/${subjectId}`, {
       method: "DELETE",
     });
     if (res.ok) {
