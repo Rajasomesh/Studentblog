@@ -10,7 +10,7 @@ function Theory() {
     e.preventDefault();
 
     const res = await fetch(
-      `http://localhost:4000/materials/theory/${year}/${semester}`
+      `https://studentblog-backend.onrender.com/materials/theory/${year}/${semester}`
     );
     const data = await res.json();
 
