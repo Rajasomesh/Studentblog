@@ -150,6 +150,8 @@ app.delete("/admin/material/:id/unit/:unitIndex", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
+app.get("/", (req, res) => {
+  res.send("✅ Student Blog Backend is running!");
+});
 /* -------------------- Start Server -------------------- */
 app.listen(port, () => console.log("🚀 Server running on port 4000"));
