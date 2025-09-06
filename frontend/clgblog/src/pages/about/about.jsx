@@ -6,7 +6,7 @@ function About(){
         <div className="adoutmain">
 
         
-        About
+        <h1>About </h1>
         </div>
         </>
     )
